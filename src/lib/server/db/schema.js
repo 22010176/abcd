@@ -1,10 +1,5 @@
-import { bigint, foreignKey, timestamp } from 'drizzle-orm/gel-core';
-import { int, mysqlTable, serial, varchar } from 'drizzle-orm/mysql-core';
-
-// export const user = mysqlTable('user', {
-// 	id: serial('id').primaryKey(),
-// 	age: int('age')
-// });
+import { bigint, foreignKey } from 'drizzle-orm/gel-core';
+import { int, mysqlTable, serial, timestamp, varchar } from 'drizzle-orm/mysql-core';
 
 export const BangCap = mysqlTable('BangCap', {
 	id: serial('id').primaryKey(),
@@ -24,6 +19,7 @@ export const GiangVien = mysqlTable("GiangVien", {
 	id: serial('id').primaryKey(),
 	tenGV: varchar("tenGV", { length: 255 }).notNull(),
 	dienThoai: varchar("dienThoai", { length: 15 }).notNull(),
+	ngaySinh: timestamp("ngaySinh").notNull(),
 	email: varchar("email", { length: 255 }).unique().notNull(),
 	khoaId: int("khoaId").notNull(),
 	bangCapId: int("bangCapId").notNull(),
