@@ -8,7 +8,6 @@ export async function PUT({ params, request }) {
   const data = await request.json()
 
   await db.update(BangCap).set(data).where(eq(BangCap.id, params.id))
-  console.log(params, data)
   return json({ success: true, data: await db.select().from(BangCap) })
 }
 

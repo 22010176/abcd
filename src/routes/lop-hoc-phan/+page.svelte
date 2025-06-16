@@ -12,9 +12,9 @@
 
 <Tabs value={group} onValueChange={(e) => (group = e.value)}>
   {#snippet list()}
-    <Tabs.Control value="bangCap">Bằng cấp</Tabs.Control>
-    <Tabs.Control value="khoa">Khoa</Tabs.Control>
-    <Tabs.Control value="giangVien">Giảng viên</Tabs.Control>
+    <Tabs.Control value="bangCap">Học phần</Tabs.Control>
+    <Tabs.Control value="khoa">Học kì</Tabs.Control>
+    <Tabs.Control value="giangVien">Lớp học phần</Tabs.Control>
   {/snippet}
   {#snippet content()}
     <Tabs.Panel value="bangCap">

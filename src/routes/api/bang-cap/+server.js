@@ -10,9 +10,7 @@ export async function GET() {
   return json(test)
 }
 
-export async function POST({ request, cookies }) {
-  console.log({ request, cookies })
-
+export async function POST({ request }) {
   const data = await request.json()
   await db.insert(BangCap).values(data)
 

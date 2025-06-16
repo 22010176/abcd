@@ -37,8 +37,8 @@
         <th class="font-bold w-150">Tên bằng cấp</th>
         <th class="font-bold w-50">Tên viết tắt</th>
         <th class="font-bold w-50">Hệ số</th>
-        <!-- <th class="text-right">Mô tả</th> -->
-        <th class="text-right w-30"></th>
+        <th class="text-right">Mô tả</th>
+        <th class="text-right"></th>
       </tr>
     </thead>
     <tbody class="[&>tr]:hover:preset-tonal-primary">
