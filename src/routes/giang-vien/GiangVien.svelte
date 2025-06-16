@@ -24,14 +24,12 @@
     if (!active) return;
 
     giangVienData = await getGiangVien();
-
     bangCapData = await getBangCap();
-    updateForm.bangCapId = bangCapData[0]?.id;
-
     khoaData = await getKhoa();
-    updateForm.khoaId = khoaData[0]?.id;
 
     state = "loaded";
+    updateForm.bangCapId = bangCapData[0]?.id;
+    updateForm.khoaId = khoaData[0]?.id;
   });
 
   async function addGiangVien(e) {
@@ -180,9 +178,9 @@
             <td>
               <!-- nút thêm dữ liệu -->
               <button
+                type="button"
                 onclick={addGiangVien}
                 disabled={!Object.values(inputForm).every((i) => !!i)}
-                type="button"
                 class="btn preset-filled-primary-500">
                 Thêm
               </button>

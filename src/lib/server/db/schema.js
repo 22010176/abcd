@@ -48,7 +48,11 @@ export const LopHocPhan = mysqlTable("LopHocPhan", {
 	soLuongSV: int("soLuongSV").notNull(),
 	hocPhanId: int("hocPhanId").notNull(),
 	kyHocId: int("kyHocId").notNull(),
+	giangVienId: int("giangVienId").notNull(),
 }, (table) => ({
 	hocPhanFK: foreignKey(() => [table.hocPhanId], () => [HocPhan.id]),
 	kyHocFK: foreignKey(() => [table.kyHocId], () => [KyHoc.id]),
+	giangVienFK: foreignKey(() => [table.giangVienId], () => [GiangVien.id]),
 }))
+
+

@@ -1,30 +1,29 @@
 <script>
   import { Tabs } from "@skeletonlabs/skeleton-svelte";
-  import BangCap from "./BangCap.svelte";
-  import Khoa from "./Khoa.svelte";
-  import GiangVien from "./GiangVien.svelte";
 
-  let group = $state("bangCap");
+  import HocPhan from "./HocPhan.svelte";
+  import KyHoc from "./KyHoc.svelte";
+  import LopHocPhan from "./LopHocPhan.svelte";
 
-  const lorem =
-    "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum veniam reprehenderit eum, reiciendis obcaecati, excepturi nemo ipsa fugit suscipit autem vitae numquam et cumque praesentium vero eos minus itaque. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum veniam reprehenderit eum, reiciendis obcaecati, excepturi nemo.";
+  let group = $state("hocPhan");
 </script>
 
 <Tabs value={group} onValueChange={(e) => (group = e.value)}>
   {#snippet list()}
-    <Tabs.Control value="bangCap">Học phần</Tabs.Control>
-    <Tabs.Control value="khoa">Học kì</Tabs.Control>
-    <Tabs.Control value="giangVien">Lớp học phần</Tabs.Control>
+    <Tabs.Control value="hocPhan">Học phần</Tabs.Control>
+    <Tabs.Control value="kyHoc">Học kì</Tabs.Control>
+    <Tabs.Control value="lopHocPhan">Lớp học phần</Tabs.Control>
   {/snippet}
+
   {#snippet content()}
-    <Tabs.Panel value="bangCap">
-      <BangCap active={group == "bangCap"} />
+    <Tabs.Panel value="hocPhan">
+      <HocPhan active={group == "hocPhan"} />
     </Tabs.Panel>
-    <Tabs.Panel value="khoa">
-      <Khoa active={group == "khoa"} />
+    <Tabs.Panel value="kyHoc">
+      <KyHoc active={group == "kyHoc"} />
     </Tabs.Panel>
-    <Tabs.Panel value="giangVien">
-      <GiangVien active={group == "giangVien"} />
+    <Tabs.Panel value="lopHocPhan">
+      <LopHocPhan active={group == "lopHocPhan"} />
     </Tabs.Panel>
   {/snippet}
 </Tabs>
