@@ -1,7 +1,7 @@
 <script>
   import { afterNavigate } from "$app/navigation";
   import { page } from "$app/state";
-  import { faBookReader, faTable, faUserAlt } from "@fortawesome/free-solid-svg-icons";
+  import { faBookReader, faMoneyBill1Wave, faTable, faUserAlt } from "@fortawesome/free-solid-svg-icons";
   import { Navigation } from "@skeletonlabs/skeleton-svelte";
   import Fa from "svelte-fa";
 
@@ -22,6 +22,9 @@
       </Navigation.Tile>
       <Navigation.Tile href="/lop-hoc-phan" labelExpanded="Lớp học phần">
         <Fa scale="1.5" icon={faBookReader} color={url.includes("lop-hoc-phan") ? "black" : "#808080"} />
+      </Navigation.Tile>
+      <Navigation.Tile href="/tinh-tien-day" labelExpanded="Tính tiền dạy">
+        <Fa scale="1.5" icon={faMoneyBill1Wave} color={url.includes("tinh-tien-day") ? "black" : "#808080"} />
       </Navigation.Tile>
       <Navigation.Tile href="/thong-ke" labelExpanded="Thống kê">
         <Fa scale="1.5" icon={faTable} color={url.includes("thong-ke") ? "black" : "#808080"} />

@@ -1,4 +1,5 @@
 import { eq } from "drizzle-orm";
+
 import { db } from ".";
 import { BangCap, GiangVien, HocPhan, Khoa, KyHoc, LopHocPhan } from "./schema";
 
