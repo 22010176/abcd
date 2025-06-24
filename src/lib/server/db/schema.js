@@ -10,6 +10,7 @@ export const BangCap = mysqlTable('BangCap', {
 
 export const Khoa = mysqlTable("Khoa", {
 	id: serial('id').primaryKey(),
+	maKhoa: varchar("maKhoa", { length: 255 }).notNull().unique(),
 	tenKhoa: varchar("tenKhoa", { length: 255 }).notNull(),
 	tenVietTat: varchar("tenVietTat", { length: 255 }).notNull(),
 	moTaNhiemVu: varchar("moTaNhiemVu", { length: 255 }).notNull(),
@@ -31,13 +32,18 @@ export const GiangVien = mysqlTable("GiangVien", {
 export const HocPhan = mysqlTable("HocPhan", {
 	id: serial('id').primaryKey(),
 	tenHP: varchar("tenHP", { length: 255 }).notNull(),
-	heSoHP: double("heSoHP").notNull(),
-	soTiet: int("soTiet").notNull(),
-})
+	heSoHP: double("heSoHP", { unsigned: true }).notNull(),
+	soTinChi: int("soTinChi", { unsigned: true }).notNull().default(3),
+	soTiet: int("soTiet", { unsigned: true }).notNull(),
+	khoaId: int("khoaId").notNull(),
+}, table => ({
+	khoaFK: foreignKey(() => [table.khoaId], () => [Khoa.id]),
+}))
 
 export const KyHoc = mysqlTable("KyHoc", {
 	id: serial('id').primaryKey(),
 	tenKy: varchar("tenKy", { length: 255 }).notNull(),
+	namHoc: int("namHoc").notNull(),
 	ngayBatDau: timestamp("ngayBatDau").notNull(),
 	ngayKetThuc: timestamp("ngayKetThuc").notNull(),
 })
@@ -45,7 +51,7 @@ export const KyHoc = mysqlTable("KyHoc", {
 export const LopHocPhan = mysqlTable("LopHocPhan", {
 	id: serial('id').primaryKey(),
 	tenLop: varchar("tenLop", { length: 255 }).notNull(),
-	soLuongSV: int("soLuongSV").notNull(),
+	soLuongSV: int("soLuongSV", { unsigned: true }).notNull(),
 	hocPhanId: int("hocPhanId").notNull(),
 	kyHocId: int("kyHocId").notNull(),
 	giangVienId: int("giangVienId").notNull(),

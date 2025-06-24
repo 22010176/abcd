@@ -7,13 +7,13 @@ export async function getKhoa() {
   return result.data
 }
 
-export async function createKhoa({ tenKhoa, tenVietTat, moTaNhiemVu }) {
-  const result = await axios.post(url, { tenKhoa, tenVietTat, moTaNhiemVu })
+export async function createKhoa({ maKhoa, tenKhoa, tenVietTat, moTaNhiemVu }) {
+  const result = await axios.post(url, { maKhoa, tenKhoa, tenVietTat, moTaNhiemVu })
   return result.data
 }
 
-export async function updateKhoa(id, { tenKhoa, tenVietTat, moTaNhiemVu }) {
-  const result = await axios.put(`${url}/${id}`, { tenKhoa, tenVietTat, moTaNhiemVu })
+export async function updateKhoa(id, { maKhoa, tenKhoa, tenVietTat, moTaNhiemVu }) {
+  const result = await axios.put(`${url}/${id}`, { maKhoa, tenKhoa, tenVietTat, moTaNhiemVu })
   return result.data
 }
 
