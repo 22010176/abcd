@@ -7,8 +7,8 @@ import { getLopHocPhan } from '$lib/server/db/utils.js'
 
 export async function PUT({ params, request }) {
   const data = await request.json()
-  console.log(data)
-  console.log(await db.update(LopHocPhan).set(data).where(eq(LopHocPhan.id, params.id)))
+
+  await db.update(LopHocPhan).set(data).where(eq(LopHocPhan.id, params.id))
   return json({ success: true, data: await getLopHocPhan() })
 }
 

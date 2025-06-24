@@ -15,7 +15,7 @@
 </script>
 
 <div class="h-screen w-min">
-  <Navigation.Rail expanded={false}>
+  <Navigation.Rail expanded={false} background="bg-blue-200">
     {#snippet tiles()}
       <Navigation.Tile href="/giang-vien" labelExpanded="Giảng viên">
         <Fa scale="1.5" icon={faUserAlt} color={url.includes("giang-vien") ? "black" : "#808080"} />

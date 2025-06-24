@@ -33,12 +33,15 @@ export async function getLopHocPhan() {
       giangVienId: LopHocPhan.giangVienId,
       tenHP: HocPhan.tenHP,
       tenKy: KyHoc.tenKy,
-      tenGV: GiangVien.tenGV
+      tenGV: GiangVien.tenGV,
+      khoaId: HocPhan.khoaId,
+      tenKhoa: Khoa.tenKhoa
     })
     .from(LopHocPhan)
     .innerJoin(KyHoc, eq(LopHocPhan.kyHocId, KyHoc.id))
     .innerJoin(GiangVien, eq(LopHocPhan.giangVienId, GiangVien.id))
     .innerJoin(HocPhan, eq(LopHocPhan.hocPhanId, HocPhan.id))
+    .innerJoin(Khoa, eq(GiangVien.khoaId, Khoa.id))
     .orderBy(LopHocPhan.id)
 }
 

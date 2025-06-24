@@ -3,6 +3,7 @@
   import BangCap from "./BangCap.svelte";
   import Khoa from "./Khoa.svelte";
   import GiangVien from "./GiangVien.svelte";
+  import ThongKe from "./ThongKe.svelte";
 
   let group = $state("bangCap");
 
@@ -15,6 +16,7 @@
     <Tabs.Control value="bangCap">Bằng cấp</Tabs.Control>
     <Tabs.Control value="khoa">Khoa</Tabs.Control>
     <Tabs.Control value="giangVien">Giảng viên</Tabs.Control>
+    <!-- <Tabs.Control value="thongke">Thống kê</Tabs.Control> -->
   {/snippet}
   {#snippet content()}
     <Tabs.Panel value="bangCap">
@@ -26,5 +28,8 @@
     <Tabs.Panel value="giangVien">
       <GiangVien active={group == "giangVien"} />
     </Tabs.Panel>
+    <!-- <Tabs.Panel value="thongke">
+      <ThongKe active={group == "thongke"} />
+    </Tabs.Panel> -->
   {/snippet}
 </Tabs>

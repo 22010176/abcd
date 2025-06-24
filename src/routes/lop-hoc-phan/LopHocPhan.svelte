@@ -1,6 +1,7 @@
 <script>
   import { deleteGiangVien, getGiangVien } from "$lib/api/giangVien";
   import { getHocPhan } from "$lib/api/hocPhan";
+  import { getKhoa } from "$lib/api/khoa";
   import { getKyHoc } from "$lib/api/kyHoc";
   import { createLopHocPhan, deleteLopHocPhan, getLopHocPhan, updateLopHocPhan } from "$lib/api/lopHocPhan";
   import { dateToInDate } from "$lib/utils";
@@ -11,28 +12,24 @@
   let updateForm = $state({ tenLop: "", soLuongSV: "", hocPhanId: undefined, kyHocId: undefined, giangVienId: undefined });
 
   let state = $state("loading");
+  let khoaData = $state([]);
   let giangVienData = $state([]);
   let lopHocPhanData = $state([]);
   let hocPhanData = $state([]);
   let hocKiData = $state([]);
-
-  $inspect(lopHocPhanData);
-
-  $inspect(active);
 
   // cập nhật dữ liệu mỗi khi người dùng chuyển sang tab giảng viên
   $effect(async () => {
     if (!active) return;
 
     lopHocPhanData = await getLopHocPhan();
-
     giangVienData = await getGiangVien();
-    inputForm.giangVienId = giangVienData[0]?.id;
-
+    khoaData = await getKhoa();
     hocPhanData = await getHocPhan();
-    inputForm.hocPhanId = hocPhanData[0]?.id;
-
     hocKiData = await getKyHoc();
+
+    inputForm.giangVienId = giangVienData[0]?.id;
+    inputForm.hocPhanId = hocPhanData[0]?.id;
     inputForm.kyHocId = hocKiData[0]?.id;
 
     state = "loaded";
@@ -78,6 +75,7 @@
             <th class="font-bold w-80">Tên lớp</th>
             <th class="font-bold w-50">Số lượng sinh viên</th>
             <th class="font-bold w-50">Học phần</th>
+            <th class="font-bold w-50">Khoa</th>
             <th class="text-right">Kì học</th>
             <th class="text-right">Giảng viên giảng dạy</th>
             <th class="text-right w-80"></th>
@@ -123,6 +121,7 @@
                 <!-- Nếu không phải thì hiện thì dòng dữ liệu bình thường -->
                 <td>{i + 1}</td>
                 <td>{row.tenLop}</td>
+                <td>{row.tenKhoa}</td>
                 <td>{row.soLuongSV}</td>
                 <td>{row.tenHP}</td>
                 <td>{row.tenKy}</td>
