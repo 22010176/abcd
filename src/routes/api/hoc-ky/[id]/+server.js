@@ -8,6 +8,7 @@ export async function PUT({ params, request }) {
   const data = await request.json()
   const input = {
     tenKy: data.tenKy,
+    namHoc: data.namHoc,
     ngayBatDau: new Date(data.ngayBatDau),
     ngayKetThuc: new Date(data.ngayKetThuc)
   }

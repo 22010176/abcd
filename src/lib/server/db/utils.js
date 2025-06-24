@@ -71,3 +71,28 @@ export async function getDanhSachHocPhanGiangVien() {
     .orderBy(LopHocPhan.id)
 }
 
+export async function getHocPhan() {
+  return await db
+    .select({
+      id: HocPhan.id,
+      tenHP: HocPhan.tenHP,
+      heSoHP: HocPhan.heSoHP,
+      soTiet: HocPhan.soTiet,
+      soTinChi: HocPhan.soTinChi,
+      khoaId: HocPhan.khoaId,
+      tenKhoa: Khoa.tenKhoa
+    })
+    .from(HocPhan)
+    .innerJoin(Khoa, eq(HocPhan.khoaId, Khoa.id))
+}
+export async function getHocKi() {
+  return await db
+    .select({
+      id: KyHoc.id,
+      tenKy: KyHoc.tenKy,
+      namHoc: KyHoc.namHoc,
+      ngayBatDau: KyHoc.ngayBatDau,
+      ngayKetThuc: KyHoc.ngayKetThuc
+    })
+    .from(KyHoc)
+}

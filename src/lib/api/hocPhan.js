@@ -7,13 +7,13 @@ export async function getHocPhan() {
   return result.data
 }
 
-export async function createHocPhan({ tenHP, heSoHP, soTiet }) {
-  const result = await axios.post(url, { tenHP, heSoHP, soTiet })
+export async function createHocPhan({ khoaId, tenHP, heSoHP, soTiet, soTinChi }) {
+  const result = await axios.post(url, { khoaId, tenHP, heSoHP, soTiet, soTinChi })
   return result.data
 }
 
-export async function updateHocPhan(id, { tenHP, heSoHP, soTiet }) {
-  const result = await axios.put(`${url}/${id}`, { tenHP, heSoHP, soTiet })
+export async function updateHocPhan(id, { khoaId, tenHP, heSoHP, soTiet, soTinChi }) {
+  const result = await axios.put(`${url}/${id}`, { khoaId, tenHP, heSoHP, soTiet, soTinChi })
   return result.data
 }
 

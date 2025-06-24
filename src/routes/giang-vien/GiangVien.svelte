@@ -40,7 +40,7 @@
     "email": "",
     "khoaId": 6,
     "bangCapId": 1
-}
+  }
   */
   function checkField({ id, tenGV, dienThoai, ngaySinh, email, khoaId, bangCapId }) {
     const tenGVErr = tenGV === "",

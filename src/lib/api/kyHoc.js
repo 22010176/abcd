@@ -7,13 +7,13 @@ export async function getKyHoc() {
   return result.data
 }
 
-export async function createKyHoc({ tenKy, ngayBatDau, ngayKetThuc }) {
-  const result = await axios.post(url, { tenKy, ngayBatDau, ngayKetThuc })
+export async function createKyHoc({ namHoc, tenKy, ngayBatDau, ngayKetThuc }) {
+  const result = await axios.post(url, { namHoc, tenKy, ngayBatDau, ngayKetThuc })
   return result.data
 }
 
-export async function updateKyHoc(id, { tenKy, ngayBatDau, ngayKetThuc }) {
-  const result = await axios.put(`${url}/${id}`, { tenKy, ngayBatDau, ngayKetThuc })
+export async function updateKyHoc(id, { namHoc, tenKy, ngayBatDau, ngayKetThuc }) {
+  const result = await axios.put(`${url}/${id}`, { namHoc, tenKy, ngayBatDau, ngayKetThuc })
   return result.data
 }
 
